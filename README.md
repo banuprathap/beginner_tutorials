@@ -13,7 +13,7 @@ ROS Publisher/Subscriber Tutorial
 2. listener
 - This package demonstrates how ROS communication is accomplished through *nodes* and *topics*. Each publishing *node* advertises the message to a *topic* that any *node* can subscribe to. This ensures that multiple nodes read the message seamlessly. This project can be extended to have multiple talkers and listeners. **Note:** each node should have a unique name.
  
-#Status
+## Status
 
 - ~~Create a project called "beginner_tutorials" on GitHub before starting~~
 - ~~Initialize your project "beginner_tutorials" as a git repository~~
@@ -25,21 +25,20 @@ ROS Publisher/Subscriber Tutorial
 - ~~Run cppcheck, fix issues (if any) and save output as a txt file to repository~~
 - ~~Create a readme.md that provides an overview and build/run steps. Define assumptions/dependencies (e.g. ROS Indigo).~~
 - ~~Push the final commits to GitHub once done.~~
-Post to Canvas with your GitHub repository link.
+- ~~Post to Canvas with your GitHub repository link.~~
 
 
-#Dependencies
+## Dependencies
 
 - ROS Indigo running on Ubuntu 14.04. 
 - If you do not have ROS, download the bash script [here](https://gist.github.com/banuprathap/b2dab970df1f89573203b546c5eb3a5c) and run it as **sudo**. Note: This script assumes you're running Ubuntu 14.04.
 
 
-###Package Dependency
+### Package Dependency
 - std_msgs
 - roscpp
-- rospy
 
-#Build steps
+## Build steps
 - Open a terminal
 ```bash
 mkdir -p catkin_ws/src
@@ -50,7 +49,7 @@ catkin_make
 source ./devel/setup.bash
 ```
 
-#Running the demo
+## Running the demo
 - In your terminal
 ```bash
 roscore
@@ -65,7 +64,7 @@ rosrun beginner_tutorials talker
 rosrun beginner_tutorials listener
 ```
 
-#Create Documentation
+## Create Documentation
 
 You will require **rosdoc_lite** package to create documents in ROS standards. You can get that by running
 ```bash
