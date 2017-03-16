@@ -90,7 +90,7 @@ before_script:
 addons:
   coverity_scan:
     project:
-      name: "beginner_tutorial"
+      name: "banuprathap/beginner_tutorial"
       description: "ENPM808X beginner tutorials for ROS"
     notification_email: bprathap@umd.edu
     build_command_prepend: "cd ~/catkin_ws && rosdep install -y --from-paths src --ignore-src --rosdistro $ROS_DISTRO"
