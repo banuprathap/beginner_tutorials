@@ -197,3 +197,16 @@ include_directories(
 
 ## Add folders to be run by python nosetests
 # catkin_add_nosetests(test)
+
+##################################################################################
+# My Inclusions
+##################################################################################
+include_directories(include ${catkin_INCLUDE_DIRS})
+
+##################################################################################
+# Add talker
+##################################################################################
+
+add_executable(talker src/talker.cpp)
+target_link_libraries(talker ${catkin_LIBRARIES})
+add_dependencies(talker beginner_tutorials_generate_messages_cpp)
