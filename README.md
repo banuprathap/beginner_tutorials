@@ -37,6 +37,7 @@ Post to Canvas with your GitHub repository link.
 ###Package Dependency
 - std_msgs
 - roscpp
+- rospy
 
 #Build steps
 - Open a terminal
