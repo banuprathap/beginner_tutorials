@@ -1,0 +1,17 @@
+actions: []
+authors: ''
+brief: ''
+bugtracker: ''
+depends:
+- std_msgs
+- rospy
+- roscpp
+- catkin
+description: ENPM808X beginner_tutorials package
+license: MIT
+maintainers: banuprathap <bprathap@umd.edu>
+msgs: []
+package_type: package
+repo_url: ''
+srvs: []
+url: http://github.com/banuprathap/beginner_tutorials
