@@ -3,19 +3,14 @@
 #include "std_msgs/String.h"
 #include "beginner_tutorials/ModString.h"
 
-
-void chatterCallback(const std_msgs::String::ConstPtr& msg) {
-  ROS_INFO("I heard: %s", msg->data.c_str());
-}
-
 int main(int argc, char **argv) {
-  ros::init(argc, argv, "listener");
+  ros::init(argc, argv, "modify");
   ros::NodeHandle n;
- /*
   ros::ServiceClient client =
     n.serviceClient<beginner_tutorials::ModString>("mod_string");
   beginner_tutorials::ModString srv;
   if (n.hasParam("msg")) {
+  	ROS_INFO("Parameter msg available");
     if (!n.getParam("msg", srv.request.s)) {
       ROS_INFO("Error getting message \n");
       return 1;
@@ -27,9 +22,4 @@ int main(int argc, char **argv) {
     ROS_ERROR("Failed to call service mod_string");
     return 1;
   }
- */
-  ros::Subscriber sub = n.subscribe("chatter", 1000, chatterCallback);
-  ros::spin();
-  return 0;
 }
-
