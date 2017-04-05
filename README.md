@@ -5,27 +5,18 @@
        src="https://scan.coverity.com/projects/12074/badge.svg"/>
 </a>
 
-ROS Publisher/Subscriber Tutorial
+ROS Tutorial
 ============================
 - ROS beginner tutorials for the course ENPM808X.
-- This is a simple ROS package with two nodes.
+- This is a simple ROS package with three nodes.
 1. talker
 2. listener
+3. modifier
 - This package demonstrates how ROS communication is accomplished through *nodes* and *topics*. Each publishing *node* advertises the message to a *topic* that any *node* can subscribe to. This ensures that multiple nodes read the message seamlessly. This project can be extended to have multiple talkers and listeners. **Note:** each node should have a unique name.
- 
-## Status
 
-- ~~Create a project called "beginner_tutorials" on GitHub before starting~~
-- ~~Initialize your project "beginner_tutorials" as a git repository~~
-- ~~Add the files to the repository as dictated by the tutorials~~
-- ~~Commit them to the repo and make a descriptive commit message at the end of each tutorial~~
-- ~~Modify the publisher node to publish a custom string message~~
-- ~~Modify the tutorial code to follow Google C++ Style Guide~~
-- ~~Run cpplint, fix issues (if any) and save output as a txt file to repository~~
-- ~~Run cppcheck, fix issues (if any) and save output as a txt file to repository~~
-- ~~Create a readme.md that provides an overview and build/run steps. Define assumptions/dependencies (e.g. ROS Indigo).~~
-- ~~Push the final commits to GitHub once done.~~
-- ~~Post to Canvas with your GitHub repository link.~~
+Additionally, we have a *node* called modify which demonstrates the ROS services to alter the value of talker message.
+ 
+
 
 
 ## Dependencies
@@ -37,6 +28,8 @@ ROS Publisher/Subscriber Tutorial
 ### Package Dependency
 - std_msgs
 - roscpp
+- rospy
+- message_generation
 
 ## Build steps
 - Open a terminal
@@ -52,16 +45,17 @@ source ./devel/setup.bash
 ## Running the demo
 - In your terminal
 ```bash
-roscore
+roslaunch beginner_tutorials demo.launch
 ```
-- Open a new terminal 
-```bash
-rosrun beginner_tutorials talker 
-```
+Also, you can specify frequency and the message using **arg:=value**. For example to launch the talker at 100Hz to publish test use,
 
-- Open another terminal
 ```bash
-rosrun beginner_tutorials listener
+roslaunch beginner_tutorials demo.launch message:="test" frequency:=100
+```
+**Note**: For the specified message to take effect, open a new terminal and run,
+
+```bash
+rosrun beginner_tutorials modify
 ```
 
 ## Create Documentation
