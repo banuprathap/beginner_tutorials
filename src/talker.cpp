@@ -105,7 +105,7 @@ int main(int argc, char **argv) {
    */
   ros::Publisher chatter_pub = n.advertise<std_msgs::String>("chatter", 1000);
   /**
-   * This creates the service. 
+   * This creates the service.
    */
   ros::ServiceServer service = n.advertiseService("mod_string", modify);
   //  variable to store loop frequency
