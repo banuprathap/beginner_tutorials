@@ -1,0 +1,11 @@
+<launch>
+	<arg name="frequency"	default="10"/>
+	<arg name="message"	default="Banu's msg"/>
+
+	<param name="f" value="$(arg frequency)"> </param>
+	<param name="msg" value="$(arg message)"> </param>
+	
+	<node name="tf_talker" pkg="beginner_tutorials" type="talker"/>
+	<test name="test_talker" pkg="beginner_tutorials" type="test_talker"/>
+
+</launch>
