@@ -228,3 +228,26 @@ add_dependencies(listener beginner_tutorials_generate_messages_cpp)
 add_executable(modify src/modify.cpp)
 target_link_libraries(modify ${catkin_LIBRARIES})
 add_dependencies(modify beginner_tutorials_gencpp)
+
+##################################################################################
+# Add tests
+##################################################################################
+
+if(CATKIN_ENABLE_TESTING)
+  find_package(rostest REQUIRED)
+  add_rostest_gtest(
+  test_talker
+  test/test.launch
+  test/test.cpp
+  )
+  target_link_libraries(
+  test_talker
+  ${catkin_LIBRARIES}
+  )
+  add_dependencies(
+  test_talker
+  talker
+  ${PROJECT_NAME}_generate_messages_cpp
+  ${catkin_EXPORTED_TARGETS}
+  )
+endif()
