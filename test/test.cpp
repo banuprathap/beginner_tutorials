@@ -29,11 +29,21 @@
  *
  *
  */
+/**
+ * @file test.cpp
+ * @brief A simple unit test for talker.cpp
+ * @author Banuprathap Anandan
+ * @date   03/14/2017
+ */
 #include <ros/ros.h>
 #include <ros/service_client.h>
 #include <gtest/gtest.h>
 #include "beginner_tutorials/ModString.h"
 std::shared_ptr<ros::NodeHandle> nh;
+/**
+ * @brief      test ModString server
+ *
+ */
 TEST(TESTSuite, addTwoInts) {
   ros::ServiceClient client = nh->serviceClient<beginner_tutorials::ModString>(
                                 "mod_string");
@@ -44,7 +54,15 @@ TEST(TESTSuite, addTwoInts) {
   client.call(srv);
   EXPECT_EQ(srv.response.f, true);
 }
-
+/**
+ * @brief      program entrypoint
+ *
+ * @param      argc  The argc
+ * @param      argv  The argv
+ *
+ * @return     integer 0 upon exit success \n
+ *            integer -1 upon exit failure
+ */
 int main(int argc, char **argv) {
   ros::init(argc, argv, "mod_string_client");
   nh.reset(new ros::NodeHandle);
