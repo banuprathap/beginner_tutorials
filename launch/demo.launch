@@ -11,7 +11,7 @@
        value="$(find beginner_tutorials)/custom.config"/>
 	-->
 	<node pkg="rosbag" type="record" name="robot_bag"
-              args="-O $(find beginner_tutorials)/mybag.bag /chatter"/>
+              args="-O $(find beginner_tutorials)/results/mybag.bag /chatter"/>
 
 	<node name="tf_talker" pkg="beginner_tutorials" type="talker">
 		

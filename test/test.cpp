@@ -44,15 +44,15 @@ std::shared_ptr<ros::NodeHandle> nh;
  * @brief      test ModString server
  *
  */
-TEST(TESTSuite, addTwoInts) {
+TEST(TESTSuite, modstring) {
   ros::ServiceClient client = nh->serviceClient<beginner_tutorials::ModString>(
                                 "mod_string");
   bool exists(client.waitForExistence(ros::Duration(1)));
   EXPECT_TRUE(exists);
   beginner_tutorials::ModString srv;
   srv.request.s = "test";
-  client.call(srv);
-  EXPECT_EQ(srv.response.f, true);
+  bool success(client.call(srv));
+  EXPECT_TRUE(success);
 }
 /**
  * @brief      program entrypoint
