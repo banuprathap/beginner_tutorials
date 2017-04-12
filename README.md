@@ -8,6 +8,9 @@
 ROS Tutorial
 ============================
 - ROS beginner tutorials for the course ENPM808X.
+
+- This section covers tf and rosbag.
+
 - This is a simple ROS package with three nodes.
 1. talker
 2. listener
@@ -30,13 +33,15 @@ Additionally, we have a *node* called modify which demonstrates the ROS services
 - roscpp
 - rospy
 - message_generation
+- tf
+- rosbag
 
 ## Build steps
 - Open a terminal
 ```bash
 mkdir -p catkin_ws/src
 cd catkin_ws/src && catkin_init_workspace
-git clone https://github.com/banuprathap/beginner_tutorials.git
+git clone --branch Week11_HW https://github.com/banuprathap/beginner_tutorials.git
 cd ..
 catkin_make
 source ./devel/setup.bash
@@ -57,6 +62,62 @@ roslaunch beginner_tutorials demo.launch message:="test" frequency:=100
 ```bash
 rosrun beginner_tutorials modify
 ```
+Now, this launch file will create a bag file named *mybag.bag* in your cloned directory. To make the listener printout the recorded info, open a terminal and run
+```bash
+rosrun beginner_tutorials listener
+``` 
+and in another terminal
+```bash
+rosbag play mybag.bag
+```
+##Inspecting bag files
+To view information about the bag file that has been recorded by this demo
+```
+rosbag info mybag.bag
+```
+which will show something similar to 
+```
+path:        mybag.bag
+version:     2.0
+duration:    11.3s
+start:       Apr 11 2017 22:43:13.96 (1491964993.96)
+end:         Apr 11 2017 22:43:25.25 (1491965005.25)
+size:        13.2 KB
+messages:    114
+compression: none [1/1 chunks]
+types:       std_msgs/String [992ce8a1687cec8c8bd883ec73ca41d1]
+topics:      /chatter   114 msgs    : std_msgs/String
+
+```
+##Inspecting tf frames
+When the talker node is running,
+```bash
+rosrun tf view_frames
+```
+will create a file named **frames.pdf** which can be viewed by using
+```bash
+evince frames.pdf
+```
+
+Instead you can directly use the GUI application by simply typing
+```
+rqt &
+```
+To view the transform between *frame1* and *frame2* use,
+```
+ rosrun tf tf_echo frame1 frame2
+```
+ In our case, the command would be
+```
+ rosrun tf tf_echo world base
+```
+
+##Running Tests
+To run the test cases,  in your catkin workspace
+```bash
+catkin_make test
+```
+This will trigger the CMake to run the test cases'
 
 ## Create Documentation
 
